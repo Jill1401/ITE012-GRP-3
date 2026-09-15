@@ -1,0 +1,44 @@
+public class prototype {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Prelim Grades:");
+        System.out.print("Enter Prelim Class Standing (CS): ");
+        double prelimCS = input.nextDouble();
+        
+        System.out.print("Enter Prelim Exam (PE): ");
+        double prelimExam = input.nextDouble();
+
+
+        double pg = (0.50 * prelimCS) + (0.50 * prelimExam);
+        System.out.println("Prelim Grade (PG): " + pg);
+        System.out.println();
+
+
+        System.out.println("Midterm Grade");
+        System.out.print("Enter Tentative Midterm Grade (TMG): ");
+        double tmg = input.nextDouble();
+
+
+        double mg = (pg / 3.0) + ((2.0 / 3.0) * tmg);
+        System.out.println("Midterm Grade (MG): " + mg);
+        System.out.println();
+
+        
+        System.out.println("Final Grade");
+        System.out.print("Enter Tentative Final Grade (TFG): ");
+        double tfg = input.nextDouble();
+
+
+        double fg = (mg / 3.0) + ((2.0 / 3.0) * tfg);
+        System.out.println("Final Grade (FG): " + fg);
+        System.out.println();
+
+
+        System.out.println("Final Summary");
+        System.out.printf("PG: %.2f\n", pg);
+        System.out.printf("MG: %.2f\n", mg);
+        System.out.printf("FG: %.2f\n", fg);
+
+        input.close();
+    }
+}
