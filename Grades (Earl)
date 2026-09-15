@@ -1,6 +1,6 @@
 package gradingSystem;
 
-public class prototype {
+public class Grades {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Prelim Grades:");
