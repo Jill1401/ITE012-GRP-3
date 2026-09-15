@@ -20,7 +20,7 @@ public class a {
         System.out.println("Midterm Grade");
         System.out.print("Enter Midterm Class Standing (TMG): ");
         double midtermCS = input.nextDouble();
-        System.out.print("Enter Prelim Exam Percentage (PE): ");
+        System.out.print("Enter Midterm Exam Percentage (PE): ");
         double midtermExam = input.nextDouble();
         
         double tmg = (0.50 * midtermCS) + (0.50 * midtermExam);
