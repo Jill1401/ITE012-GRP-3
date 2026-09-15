@@ -1,0 +1,33 @@
+package gradingSystem;
+
+// Class for the Student Information
+public class StudentInfo {
+	
+	// Fields for the attributes, variables
+	private String studentName;
+	private String idNumber;
+	private String course;
+	
+	// Constructor parameters, to be initialized later in Main
+	public studentInfo(String studentName, String idNumber, String course) {
+		this.studentName = studentName;
+		this.idNumber = idNumber;
+		this.course = course;
+	}
+	
+	// Getter method for Student Name
+	public String getStudentName() {
+		return studentName;
+	}
+	
+	
+	// Getter method for ID Number
+	public String getIdNumber() {
+		return idNumber;
+	}
+	
+	// Getter method for Student Course
+	public String getCourse() {
+		return course;
+	}
+}
