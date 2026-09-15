@@ -1,3 +1,5 @@
+package gradingSystem;
+
 public class prototype {
         Scanner input = new Scanner(System.in);
 
