@@ -1,0 +1,129 @@
+import java.util.Scanner;
+
+public class Classstanding {
+
+    // Member variables
+    private String name;
+    private String id;
+    private double quiz;
+    private double recitation;
+    private double assignment;
+
+    // Default constructor
+    public Classstanding() {
+        this.name = "";
+        this.id = "";
+        this.quiz = 0.0;
+        this.recitation = 0.0;
+        this.assignment = 0.0;
+    }
+
+    // Getters and Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        // String manipulation: format name nicely
+        this.name = name.trim().toUpperCase();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id.trim();
+    }
+
+    public double getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(double quiz) {
+        this.quiz = quiz;
+    }
+
+    public double getRecitation() {
+        return recitation;
+    }
+
+    public void setRecitation(double recitation) {
+        this.recitation = recitation;
+    }
+
+    public double getAssignment() {
+        return assignment;
+    }
+
+    public void setAssignment(double assignment) {
+        this.assignment = assignment;
+    }
+
+    // Computes class standing average
+    public double computeClassStanding() {
+        return (quiz + recitation + assignment) / 3.0;
+    }
+
+    // Evaluates standing status
+    public String getStandingStatus(double csGrade) {
+        if (csGrade >= 90) {
+            return "EXCELLENT";
+        } else if (csGrade >= 75) {
+            return "SATISFACTORY";
+        } else {
+            return "NEEDS IMPROVEMENT";
+        }
+    }
+
+    // Helper method to read valid score inputs from the user
+    public double inputScore(Scanner sc, String scoreType) {
+        double score = -1;
+        while (score < 0 || score > 100) {
+            try {
+                System.out.print("Enter " + scoreType + " score (0-100): ");
+                score = Double.parseDouble(sc.nextLine());
+                
+                if (score < 0 || score > 100) {
+                    System.out.println("Invalid score! Please enter a value from 0 to 100.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input! Please enter a valid number.");
+                score = -1; // reset score to keep looping
+            }
+        }
+        return score;
+    }
+
+    // Independent module tester
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Classstanding cs = new Classstanding();
+
+        System.out.println("=== CLASS STANDING MODULE ===");
+
+        System.out.print("Enter Student Name: ");
+        cs.setName(sc.nextLine());
+
+        System.out.print("Enter Student ID: ");
+        cs.setId(sc.nextLine());
+
+        // Read and set valid scores using exception handling
+        cs.setQuiz(cs.inputScore(sc, "Quiz"));
+        cs.setRecitation(cs.inputScore(sc, "Recitation"));
+        cs.setAssignment(cs.inputScore(sc, "Assignment"));
+
+        // Calculations
+        double finalCS = cs.computeClassStanding();
+        String status = cs.getStandingStatus(finalCS);
+
+        // Display summary
+        System.out.println("\n--------------------------------");
+        System.out.println("Student: " + cs.getName() + " (" + cs.getId() + ")");
+        System.out.printf("Class Standing Grade: %.2f\n", finalCS);
+        System.out.println("Status: " + status);
+        System.out.println("--------------------------------");
+
+        sc.close();
+    }
+}
